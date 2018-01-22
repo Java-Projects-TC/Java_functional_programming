@@ -18,7 +18,7 @@ import rectangles.StreamAlgorithms;
 
 public class TestSuite {
 
-  /*
+
   // Un-comment when you are ready to test your Point class.
 
   //==================================================================================
@@ -109,7 +109,7 @@ public class TestSuite {
         new Point(0, 10).add(new Point(10, 0))));
   }
 
-
+/*
   //==================================================================================
   // Helper methods to compare rectangles and lists of rectangles.
   // Later in the course we will look at overriding the "equals" method of Object,
