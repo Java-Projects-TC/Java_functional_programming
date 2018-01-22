@@ -8,8 +8,6 @@ public class Rectangle {
   private final int y1;
   private final int y2;
 
-  // Could I have a field for HEIGHT and WIDTH in terms of x1,x2, y1 and y2
-
   // Constructors
   public Rectangle(Point topLeft, int width, int height) {
     this.x1 = topLeft.getX();
@@ -39,5 +37,42 @@ public class Rectangle {
   public Rectangle setWidth(int newWidth) {
     return new Rectangle(new Point(this.x1,this.y1), newWidth, this.y2 -
         this.y1);
+  }
+
+
+  public Rectangle setHeight(int newHeight) {
+    return new Rectangle(new Point(this.x1, this.y1), this.x2 - this.x1,
+        newHeight);
+  }
+
+  public Point getTopLeft() {
+    return new Point(this.x1, this.y1);
+  }
+
+  public Point getTopRight() {
+    return new Point(this.x2, this.y1);
+  }
+
+  public Point getBottomLeft() {
+    return new Point(this.x1, this.y2);
+  }
+
+  public Point getBottomRight() {
+    return new Point(this.x2, this.y2);
+  }
+
+  public int area() {
+    return this.x2 - this.x1 * this.y2 - this.y1;
+  }
+
+  public boolean intersects(Rectangle other) {
+    // loop through all points in current rectangle and see if the other
+    // rectangle contains any of them
+    return false;
+  }
+
+  private boolean contains(Point point) {
+    return this.x1 <= point.getX() && this.x2 >= point.getX() && this.y1 <=
+        point.getY() && this.y2 >= point.getY();
   }
 }
