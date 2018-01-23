@@ -109,7 +109,7 @@ public class TestSuite {
         new Point(0, 10).add(new Point(10, 0))));
   }
 
-/*
+
   //==================================================================================
   // Helper methods to compare rectangles and lists of rectangles.
   // Later in the course we will look at overriding the "equals" method of Object,
@@ -302,7 +302,7 @@ public class TestSuite {
       new Rectangle(new Point(10, 100), 10000, 10000),
       new Rectangle(new Point(2010, 2100), 10, 10));
 
-
+/*
   //===================================
   // 3. Tests for ListAlgorithms class.
   //===================================
