@@ -17,8 +17,12 @@ public class ListAlgorithms {
    * @return The translated rectangles
    */
   public static List<Rectangle> translate(List<Rectangle> rectangles, Point vector) {
-    // TODO
-    return null;
+    List<Rectangle> result = new ArrayList<>();
+    for (Rectangle rectangle : rectangles) {
+    result.add(new Rectangle(rectangle.getTopLeft().add(vector), rectangle
+        .getBottomRight().add(vector)));
+    }
+    return result;
   }
 
   /**
@@ -29,16 +33,22 @@ public class ListAlgorithms {
    * @return The scaled rectangles
    */
   public static List<Rectangle> scale(List<Rectangle> rectangles, int factor) {
-    // TODO
-    return null;
+    for (Rectangle rectangle : rectangles) {
+      rectangle.setHeight(rectangle.getHeight() * factor);
+      rectangle.setWidth(rectangle.getWidth() * factor);
+    }
+    return rectangles;
   }
 
   /**
    * Returns a list containing, in order, the bottom-left point of each input rectangle.
    */
   public static List<Point> getBottomLeftPoints(List<Rectangle> rectangles) {
-    // TODO
-    return null;
+    List<Point> result = new ArrayList<>();
+    for (Rectangle rectangle : rectangles) {
+      result.add(rectangle.getBottomLeft());
+    }
+    return result;
   }
 
   /**
@@ -50,8 +60,13 @@ public class ListAlgorithms {
    */
   public static List<Rectangle> getAllIntersecting(List<Rectangle> rectangles,
       Rectangle rectangle) {
-    // TODO
-    return null;
+    List<Rectangle> result = new ArrayList<>();
+    for (Rectangle rect : rectangles) {
+      if (rect.intersects(rectangle)) {
+        result.add(rect);
+      }
+    }
+    return result;
   }
 
   /**
@@ -63,32 +78,50 @@ public class ListAlgorithms {
    */
   public static List<Rectangle> getAllWithBiggerAreaThan(List<Rectangle> rectangles,
       Rectangle rectangle) {
-    // TODO
-    return null;
+    List<Rectangle> result = new ArrayList<>();
+    for (Rectangle rect : rectangles) {
+      if (rect.area() > rectangle.area()) {
+        result.add(rect);
+      }
+    }
+    return result;
   }
 
   /**
    * Returns the largest area among the given rectangles.
    */
   public static int findLargestArea(List<Rectangle> rectangles) {
-    // TODO
-    return 0;
+    int maxArea = 0;
+    for (Rectangle rectangle : rectangles) {
+      if (rectangle.area() > maxArea) {
+        maxArea = rectangle.area();
+      }
+    }
+    return maxArea;
   }
 
   /**
    * Returns the largest height among all the given rectangles.
    */
   public static int findMaxHeight(List<Rectangle> rectangles) {
-    // TODO
-    return 0;
+    int maxHeight = 0;
+    for (Rectangle rectangle : rectangles) {
+      if (rectangle.getHeight() > maxHeight) {
+        maxHeight = rectangle.getHeight();
+      }
+    }
+    return maxHeight;
   }
 
   /**
    * Computes the sum of areas of all the given rectangles.
    */
   public static int getSumOfAreas(List<Rectangle> rectangles) {
-    // TODO
-    return 0;
+    int result = 0;
+    for (Rectangle rectangle : rectangles) {
+      result += rectangle.area();
+    }
+    return result;
   }
 
   /**
@@ -100,8 +133,7 @@ public class ListAlgorithms {
    */
   public static int getSumOfAreasOfAllIntersecting(List<Rectangle> rectangles,
       Rectangle rectangle) {
-    // TODO
-    return 0;
+    return getSumOfAreas(getAllIntersecting(rectangles, rectangle));
   }
 
   /**

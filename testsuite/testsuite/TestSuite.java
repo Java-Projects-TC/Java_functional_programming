@@ -302,7 +302,7 @@ public class TestSuite {
       new Rectangle(new Point(10, 100), 10000, 10000),
       new Rectangle(new Point(2010, 2100), 10, 10));
 
-/*
+
   //===================================
   // 3. Tests for ListAlgorithms class.
   //===================================
@@ -404,7 +404,7 @@ public class TestSuite {
     assertEquals(1 * 1 + 2 * 2 + 3 * 3 + 4 * 4 + 5 * 5,
         ListAlgorithms.getSumOfAreas(INCREASING_ENCLOSING));
   }
-
+/*
   @Test
   public void listGetSumOfAreasOfAllIntersecting() {
     assertEquals(0, ListAlgorithms.getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING,
