@@ -404,7 +404,7 @@ public class TestSuite {
     assertEquals(1 * 1 + 2 * 2 + 3 * 3 + 4 * 4 + 5 * 5,
         ListAlgorithms.getSumOfAreas(INCREASING_ENCLOSING));
   }
-/*
+
   @Test
   public void listGetSumOfAreasOfAllIntersecting() {
     assertEquals(0, ListAlgorithms.getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING,
@@ -442,7 +442,7 @@ public class TestSuite {
     return false;
   }
 
-
+  /*
   //=====================================
   // 4. Tests for StreamAlgorithms class.
   //=====================================

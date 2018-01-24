@@ -33,11 +33,15 @@ public class ListAlgorithms {
    * @return The scaled rectangles
    */
   public static List<Rectangle> scale(List<Rectangle> rectangles, int factor) {
+    List<Rectangle> result = new ArrayList<>();
     for (Rectangle rectangle : rectangles) {
-      rectangle.setHeight(rectangle.getHeight() * factor);
-      rectangle.setWidth(rectangle.getWidth() * factor);
+      // Why not just:
+      // rectangle.setWidth(rectangle.getWidth * factor)
+      // rectangle.setHeight(rectangle.getHeight * factor)
+      result.add(new Rectangle(rectangle.getTopLeft(), rectangle.getWidth() *
+          factor, rectangle.getHeight() * factor));
     }
-    return rectangles;
+    return result;
   }
 
   /**
@@ -140,8 +144,11 @@ public class ListAlgorithms {
    * Returns collection that maps each rectangle to its computed area.
    */
   public static Map<Rectangle, Integer> getAreaMap(List<Rectangle> rectangles) {
-    // TODO
-    return null;
+    Map<Rectangle, Integer> areaMap = new HashMap<>();
+    for (Rectangle rectangle : rectangles) {
+      areaMap.put(rectangle, new Integer(rectangle.area()));
+    }
+    return areaMap;
   }
 
 }
