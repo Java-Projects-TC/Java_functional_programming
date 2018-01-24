@@ -15,8 +15,8 @@ public class StreamAlgorithms {
    * @return The translated rectangles
    */
   public static Stream<Rectangle> translate(Stream<Rectangle> rectangles, Point vector) {
-    // TODO
-    return null;
+    return rectangles.map(rectangle-> new Rectangle(rectangle.getTopLeft().add
+        (vector), rectangle.getBottomRight().add(vector)));
   }
 
   /**
@@ -27,16 +27,15 @@ public class StreamAlgorithms {
    * @return The scaled rectangles
    */
   public static Stream<Rectangle> scale(Stream<Rectangle> rectangles, int factor) {
-    // TODO
-    return null;
+    return rectangles.map(rectangle -> new Rectangle(rectangle.getTopLeft(),
+        rectangle.getWidth() * factor, rectangle.getHeight() * factor));
   }
 
   /**
    * Returns a stream containing, in order, the bottom-left point of each input rectangle.
    */
   public static Stream<Point> getBottomLeftPoints(Stream<Rectangle> rectangles) {
-    // TODO
-    return null;
+    return rectangles.map(Rectangle::getBottomLeft);
   }
 
   /**
@@ -48,8 +47,7 @@ public class StreamAlgorithms {
    */
   public static Stream<Rectangle> getAllIntersecting(Stream<Rectangle> rectangles,
       Rectangle rectangle) {
-    // TODO
-    return null;
+    return rectangles.filter(rect -> rect.intersects(rectangle));
   }
 
   /**
@@ -61,15 +59,14 @@ public class StreamAlgorithms {
    */
   public static Stream<Rectangle> getAllWithBiggerAreaThan(Stream<Rectangle> rectangles,
       Rectangle rectangle) {
-    // TODO
-    return null;
+    return rectangles.filter(rect -> rect.area() > rectangle.area());
   }
 
   /**
    * Returns the largest area among the given rectangles.
    */
   public static int findLargestArea(Stream<Rectangle> rectangles) {
-    // TODO
+    //return rectangles.reduce()
     return 0;
   }
 
