@@ -18,7 +18,6 @@ import rectangles.StreamAlgorithms;
 
 public class TestSuite {
 
-
   // Un-comment when you are ready to test your Point class.
 
   //==================================================================================
@@ -42,7 +41,6 @@ public class TestSuite {
     }
     return true;
   }
-
 
   //==========================
   // 1. Tests for Point class.
@@ -104,11 +102,11 @@ public class TestSuite {
 
   @Test
   public void pointAdd() {
-    assertTrue(equalPoints(new Point(1, 1).add(new Point(10, 10)), new Point(11, 11)));
+    assertTrue(
+        equalPoints(new Point(1, 1).add(new Point(10, 10)), new Point(11, 11)));
     assertTrue(equalPoints(new Point(10, 0).add(new Point(0, 10)),
         new Point(0, 10).add(new Point(10, 0))));
   }
-
 
   //==================================================================================
   // Helper methods to compare rectangles and lists of rectangles.
@@ -124,7 +122,8 @@ public class TestSuite {
         r1.getWidth() == r2.getWidth() && r2.getHeight() == r2.getHeight();
   }
 
-  private static boolean equalRectangleLists(List<Rectangle> l1, List<Rectangle> l2) {
+  private static boolean equalRectangleLists(List<Rectangle> l1,
+      List<Rectangle> l2) {
     if (l1.size() != l2.size()) {
       return false;
     }
@@ -135,7 +134,6 @@ public class TestSuite {
     }
     return true;
   }
-
 
   //==============================
   // 2. Tests for Rectangle class.
@@ -151,9 +149,11 @@ public class TestSuite {
 
   @Test
   public void rectangleConstructor2() {
-    assertTrue(equalRectangles(new Rectangle(10, 20), new Rectangle(new Point(0, 0), 10, 20)));
+    assertTrue(equalRectangles(new Rectangle(10, 20),
+        new Rectangle(new Point(0, 0), 10, 20)));
     assertTrue(
-        equalRectangles(new Rectangle(10, 20), new Rectangle(new Point(0, 0), new Point(10, 20))));
+        equalRectangles(new Rectangle(10, 20),
+            new Rectangle(new Point(0, 0), new Point(10, 20))));
   }
 
   @Test
@@ -165,13 +165,15 @@ public class TestSuite {
 
   @Test
   public void rectangleGetWidth() {
-    assertEquals(new Rectangle(new Point(1, 1), new Point(11, 11)).getWidth(), 10);
+    assertEquals(new Rectangle(new Point(1, 1), new Point(11, 11)).getWidth(),
+        10);
     assertEquals(new Rectangle(new Point(1, 1), 20, 30).getWidth(), 20);
   }
 
   @Test
   public void rectangleGetHeight() {
-    assertEquals(new Rectangle(new Point(1, 0), new Point(11, 11)).getHeight(), 11);
+    assertEquals(new Rectangle(new Point(1, 0), new Point(11, 11)).getHeight(),
+        11);
     assertEquals(new Rectangle(new Point(7, 6), 20, 30).getHeight(), 30);
   }
 
@@ -179,36 +181,43 @@ public class TestSuite {
   public void rectangleSetWidth() {
     assertTrue(equalRectangles(new Rectangle(new Point(1, 2), 3, 4).setWidth(5),
         new Rectangle(new Point(1, 2), 5, 4)));
-    assertTrue(equalRectangles(new Rectangle(new Point(1, 2), new Point(6, 7)).setWidth(10),
+    assertTrue(equalRectangles(
+        new Rectangle(new Point(1, 2), new Point(6, 7)).setWidth(10),
         new Rectangle(new Point(1, 2), new Point(11, 7))));
   }
 
   @Test
   public void rectangleSetHeight() {
-    assertTrue(equalRectangles(new Rectangle(new Point(1, 2), 3, 4).setHeight(5),
-        new Rectangle(new Point(1, 2), 3, 5)));
-    assertTrue(equalRectangles(new Rectangle(new Point(1, 2), new Point(6, 7)).setHeight(10),
+    assertTrue(
+        equalRectangles(new Rectangle(new Point(1, 2), 3, 4).setHeight(5),
+            new Rectangle(new Point(1, 2), 3, 5)));
+    assertTrue(equalRectangles(
+        new Rectangle(new Point(1, 2), new Point(6, 7)).setHeight(10),
         new Rectangle(new Point(1, 2), new Point(6, 12))));
   }
 
   @Test
   public void rectangleGetTopLeft() {
-    assertTrue(equalPoints(new Point(1, 2), new Rectangle(new Point(1, 2), 3, 4).getTopLeft()));
+    assertTrue(equalPoints(new Point(1, 2),
+        new Rectangle(new Point(1, 2), 3, 4).getTopLeft()));
   }
 
   @Test
   public void rectangleGetTopRight() {
-    assertTrue(equalPoints(new Point(4, 2), new Rectangle(new Point(1, 2), 3, 4).getTopRight()));
+    assertTrue(equalPoints(new Point(4, 2),
+        new Rectangle(new Point(1, 2), 3, 4).getTopRight()));
   }
 
   @Test
   public void rectangleGetBottomLeft() {
-    assertTrue(equalPoints(new Point(1, 6), new Rectangle(new Point(1, 2), 3, 4).getBottomLeft()));
+    assertTrue(equalPoints(new Point(1, 6),
+        new Rectangle(new Point(1, 2), 3, 4).getBottomLeft()));
   }
 
   @Test
   public void rectangleGetBottomRight() {
-    assertTrue(equalPoints(new Point(4, 6), new Rectangle(new Point(1, 2), 3, 4).getBottomRight()));
+    assertTrue(equalPoints(new Point(4, 6),
+        new Rectangle(new Point(1, 2), 3, 4).getBottomRight()));
   }
 
   @Test
@@ -255,17 +264,19 @@ public class TestSuite {
   @Test
   public void rectangleIntersect2() {
     assertTrue(
-        new Rectangle(new Point(0, 0), 3, 3).intersects(new Rectangle(new Point(3, 3), 10, 10)));
+        new Rectangle(new Point(0, 0), 3, 3)
+            .intersects(new Rectangle(new Point(3, 3), 10, 10)));
     assertTrue(
-        new Rectangle(new Point(0, 0), 3, 3).intersects(new Rectangle(new Point(3, 0), 10, 10)));
+        new Rectangle(new Point(0, 0), 3, 3)
+            .intersects(new Rectangle(new Point(3, 0), 10, 10)));
   }
 
   @Test
   public void rectangleIntersect3() {
     assertFalse(
-        new Rectangle(new Point(0, 0), 3, 3).intersects(new Rectangle(new Point(4, 4), 10, 10)));
+        new Rectangle(new Point(0, 0), 3, 3)
+            .intersects(new Rectangle(new Point(4, 4), 10, 10)));
   }
-
 
   //===============================================================================
   // Lists of Rectangles, useful for testing ListAlgorithms and StreamAlgorithms.
@@ -284,24 +295,32 @@ public class TestSuite {
       new Rectangle(new Point(0, 0), 1000, 1000),
       new Rectangle(new Point(2000, 2000), 1, 1));
 
-  private static final List<Rectangle> VARIOUS_RECTANGLES_TRANSLATED = Arrays.asList(
-      new Rectangle(new Point(20, 110), 10, 10),
-      new Rectangle(new Point(25, 115), 10, 10),
-      new Rectangle(new Point(10, 100), 1000, 1000),
-      new Rectangle(new Point(2010, 2100), 1, 1));
+  private static final List<Rectangle> VARIOUS_RECTANGLES_TRANSLATED = Arrays
+      .asList(
+          new Rectangle(new Point(20, 110), 10, 10),
+          new Rectangle(new Point(25, 115), 10, 10),
+          new Rectangle(new Point(10, 100), 1000, 1000),
+          new Rectangle(new Point(2010, 2100), 1, 1));
 
-  private static final List<Rectangle> VARIOUS_RECTANGLES_SCALED = Arrays.asList(
-      new Rectangle(new Point(10, 10), 100, 100),
-      new Rectangle(new Point(15, 15), 100, 100),
-      new Rectangle(new Point(0, 0), 10000, 10000),
-      new Rectangle(new Point(2000, 2000), 10, 10));
+  private static final List<Rectangle> VARIOUS_RECTANGLES_SCALED = Arrays
+      .asList(
+          new Rectangle(new Point(10, 10), 100, 100),
+          new Rectangle(new Point(15, 15), 100, 100),
+          new Rectangle(new Point(0, 0), 10000, 10000),
+          new Rectangle(new Point(2000, 2000), 10, 10));
 
-  private static final List<Rectangle> VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED = Arrays.asList(
-      new Rectangle(new Point(20, 110), 100, 100),
-      new Rectangle(new Point(25, 115), 100, 100),
-      new Rectangle(new Point(10, 100), 10000, 10000),
-      new Rectangle(new Point(2010, 2100), 10, 10));
+  private static final List<Rectangle> VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED = Arrays
+      .asList(
+          new Rectangle(new Point(20, 110), 100, 100),
+          new Rectangle(new Point(25, 115), 100, 100),
+          new Rectangle(new Point(10, 100), 10000, 10000),
+          new Rectangle(new Point(2010, 2100), 10, 10));
 
+  private static final List<Rectangle> NO_RECTANGLES = new ArrayList<>();
+
+  private static final List<Rectangle> SINGLE_RECTANGLE = Arrays.asList(
+      new Rectangle(1, 1)
+  );
 
   //===================================
   // 3. Tests for ListAlgorithms class.
@@ -317,7 +336,8 @@ public class TestSuite {
   @Test
   public void listScale() {
     assertTrue(equalRectangleLists(
-        VARIOUS_RECTANGLES_SCALED, ListAlgorithms.scale(VARIOUS_RECTANGLES, 10)));
+        VARIOUS_RECTANGLES_SCALED,
+        ListAlgorithms.scale(VARIOUS_RECTANGLES, 10)));
   }
 
   @Test
@@ -330,7 +350,8 @@ public class TestSuite {
 
   @Test
   public void listGetBottomLeft() {
-    List<Point> bottomLeft = ListAlgorithms.getBottomLeftPoints(VARIOUS_RECTANGLES);
+    List<Point> bottomLeft = ListAlgorithms
+        .getBottomLeftPoints(VARIOUS_RECTANGLES);
     List<Point> expected = Arrays.asList(
         new Point(10, 20),
         new Point(15, 25),
@@ -342,13 +363,15 @@ public class TestSuite {
   @Test
   public void listGetAllIntersecting1() {
     assertTrue(equalRectangleLists(INCREASING_ENCLOSING,
-        ListAlgorithms.getAllIntersecting(INCREASING_ENCLOSING, INCREASING_ENCLOSING.get(2))));
+        ListAlgorithms.getAllIntersecting(INCREASING_ENCLOSING,
+            INCREASING_ENCLOSING.get(2))));
   }
 
   @Test
   public void listGetAllIntersecting2() {
     assertTrue(equalRectangleLists(new ArrayList<Rectangle>(),
-        ListAlgorithms.getAllIntersecting(new ArrayList<>(), new Rectangle(0, 0))));
+        ListAlgorithms
+            .getAllIntersecting(new ArrayList<>(), new Rectangle(0, 0))));
   }
 
   @Test
@@ -366,7 +389,8 @@ public class TestSuite {
     Rectangle candidate = new Rectangle(new Point(3, 3), 100, 100);
     List<Rectangle> expected = new ArrayList<>();
     assertTrue(equalRectangleLists(expected,
-        ListAlgorithms.getAllWithBiggerAreaThan(INCREASING_ENCLOSING, candidate)));
+        ListAlgorithms
+            .getAllWithBiggerAreaThan(INCREASING_ENCLOSING, candidate)));
   }
 
   @Test
@@ -376,17 +400,22 @@ public class TestSuite {
         .asList(INCREASING_ENCLOSING.get(1), INCREASING_ENCLOSING.get(2),
             INCREASING_ENCLOSING.get(3), INCREASING_ENCLOSING.get(4));
     assertTrue(equalRectangleLists(expected,
-        ListAlgorithms.getAllWithBiggerAreaThan(INCREASING_ENCLOSING, candidate)));
+        ListAlgorithms
+            .getAllWithBiggerAreaThan(INCREASING_ENCLOSING, candidate)));
   }
 
   @Test
   public void listFindLargestArea() {
     assertEquals(5 * 5, ListAlgorithms.findLargestArea(INCREASING_ENCLOSING));
-    assertEquals(1000 * 1000, ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES));
-    assertEquals(1000 * 1000, ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES_TRANSLATED));
-    assertEquals(10000 * 10000, ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES_SCALED));
+    assertEquals(1000 * 1000,
+        ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES));
+    assertEquals(1000 * 1000,
+        ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES_TRANSLATED));
     assertEquals(10000 * 10000,
-        ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED));
+        ListAlgorithms.findLargestArea(VARIOUS_RECTANGLES_SCALED));
+    assertEquals(10000 * 10000,
+        ListAlgorithms
+            .findLargestArea(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED));
     assertEquals(0, ListAlgorithms.findLargestArea(new ArrayList<>()));
   }
 
@@ -394,9 +423,12 @@ public class TestSuite {
   public void listFindMaxHeight() {
     assertEquals(5, ListAlgorithms.findMaxHeight(INCREASING_ENCLOSING));
     assertEquals(1000, ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES));
-    assertEquals(1000, ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED));
-    assertEquals(10000, ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_SCALED));
-    assertEquals(10000, ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED));
+    assertEquals(1000,
+        ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED));
+    assertEquals(10000,
+        ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_SCALED));
+    assertEquals(10000,
+        ListAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED));
   }
 
   @Test
@@ -407,8 +439,9 @@ public class TestSuite {
 
   @Test
   public void listGetSumOfAreasOfAllIntersecting() {
-    assertEquals(0, ListAlgorithms.getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING,
-        new Rectangle(new Point(100, 100), 10, 10)));
+    assertEquals(0,
+        ListAlgorithms.getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING,
+            new Rectangle(new Point(100, 100), 10, 10)));
     assertEquals(3 * 3 + 4 * 4 + 5 * 5, ListAlgorithms
         .getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING,
             new Rectangle(new Point(3, 3), 10, 10)));
@@ -416,7 +449,8 @@ public class TestSuite {
 
   @Test
   public void listGetAreaMap() {
-    Map<Rectangle, Integer> result = ListAlgorithms.getAreaMap(INCREASING_ENCLOSING);
+    Map<Rectangle, Integer> result = ListAlgorithms
+        .getAreaMap(INCREASING_ENCLOSING);
     Map<Rectangle, Integer> expected = new HashMap<>();
     expected.put(INCREASING_ENCLOSING.get(0), 1 * 1);
     expected.put(INCREASING_ENCLOSING.get(1), 2 * 2);
@@ -432,7 +466,8 @@ public class TestSuite {
 
   }
 
-  private boolean containsMatchingPair(Map<Rectangle, Integer> toCheck, Rectangle key,
+  private boolean containsMatchingPair(Map<Rectangle, Integer> toCheck,
+      Rectangle key,
       Integer value) {
     for (Rectangle r : toCheck.keySet()) {
       if (equalRectangles(r, key) && toCheck.get(r).equals(value)) {
@@ -442,7 +477,6 @@ public class TestSuite {
     return false;
   }
 
-
   //=====================================
   // 4. Tests for StreamAlgorithms class.
   //=====================================
@@ -451,27 +485,31 @@ public class TestSuite {
   public void streamTranslate() {
     assertTrue(equalRectangleLists(
         VARIOUS_RECTANGLES_TRANSLATED, StreamAlgorithms
-            .translate(VARIOUS_RECTANGLES.stream(), new Point(10, 100)).collect(toList())));
+            .translate(VARIOUS_RECTANGLES.stream(), new Point(10, 100))
+            .collect(toList())));
   }
 
   @Test
   public void streamScale() {
     assertTrue(equalRectangleLists(
         VARIOUS_RECTANGLES_SCALED,
-        StreamAlgorithms.scale(VARIOUS_RECTANGLES.stream(), 10).collect(toList())));
+        StreamAlgorithms.scale(VARIOUS_RECTANGLES.stream(), 10)
+            .collect(toList())));
   }
 
   @Test
   public void streamTranslateAndScale() {
     assertTrue(equalRectangleLists(
         VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED, StreamAlgorithms.scale(
-            StreamAlgorithms.translate(VARIOUS_RECTANGLES.stream(), new Point(10, 100)),
+            StreamAlgorithms
+                .translate(VARIOUS_RECTANGLES.stream(), new Point(10, 100)),
             10).collect(toList())));
   }
 
   @Test
   public void streamGetBottomLeft() {
-    List<Point> bottomLeft = StreamAlgorithms.getBottomLeftPoints(VARIOUS_RECTANGLES.stream())
+    List<Point> bottomLeft = StreamAlgorithms
+        .getBottomLeftPoints(VARIOUS_RECTANGLES.stream())
         .collect(toList());
     List<Point> expected = Arrays.asList(
         new Point(10, 20),
@@ -484,14 +522,16 @@ public class TestSuite {
   @Test
   public void streamGetAllIntersecting1() {
     assertTrue(equalRectangleLists(INCREASING_ENCLOSING, StreamAlgorithms
-        .getAllIntersecting(INCREASING_ENCLOSING.stream(), INCREASING_ENCLOSING.get(2))
+        .getAllIntersecting(INCREASING_ENCLOSING.stream(),
+            INCREASING_ENCLOSING.get(2))
         .collect(toList())));
   }
 
   @Test
   public void streamGetAllIntersecting2() {
     assertTrue(equalRectangleLists(new ArrayList<Rectangle>(), StreamAlgorithms
-        .getAllIntersecting(new ArrayList<Rectangle>().stream(), new Rectangle(0, 0))
+        .getAllIntersecting(new ArrayList<Rectangle>().stream(),
+            new Rectangle(0, 0))
         .collect(toList())));
   }
 
@@ -502,7 +542,8 @@ public class TestSuite {
         .asList(INCREASING_ENCLOSING.get(2), INCREASING_ENCLOSING.get(3),
             INCREASING_ENCLOSING.get(4));
     assertTrue(equalRectangleLists(expected,
-        StreamAlgorithms.getAllIntersecting(INCREASING_ENCLOSING.stream(), candidate)
+        StreamAlgorithms
+            .getAllIntersecting(INCREASING_ENCLOSING.stream(), candidate)
             .collect(toList())));
   }
 
@@ -511,8 +552,10 @@ public class TestSuite {
     Rectangle candidate = new Rectangle(new Point(3, 3), 100, 100);
     List<Rectangle> expected = new ArrayList<>();
     assertTrue(equalRectangleLists(expected,
-        StreamAlgorithms.getAllWithBiggerAreaThan(INCREASING_ENCLOSING.stream(), candidate).collect(
-            toList())));
+        StreamAlgorithms
+            .getAllWithBiggerAreaThan(INCREASING_ENCLOSING.stream(), candidate)
+            .collect(
+                toList())));
   }
 
   @Test
@@ -522,31 +565,42 @@ public class TestSuite {
         .asList(INCREASING_ENCLOSING.get(1), INCREASING_ENCLOSING.get(2),
             INCREASING_ENCLOSING.get(3), INCREASING_ENCLOSING.get(4));
     assertTrue(equalRectangleLists(expected,
-        StreamAlgorithms.getAllWithBiggerAreaThan(INCREASING_ENCLOSING.stream(), candidate)
+        StreamAlgorithms
+            .getAllWithBiggerAreaThan(INCREASING_ENCLOSING.stream(), candidate)
             .collect(toList())));
   }
 
   @Test
   public void streamFindLargestArea() {
-    assertEquals(5 * 5, StreamAlgorithms.findLargestArea(INCREASING_ENCLOSING.stream()));
-    assertEquals(1000 * 1000, StreamAlgorithms.findLargestArea(VARIOUS_RECTANGLES.stream()));
+    assertEquals(5 * 5,
+        StreamAlgorithms.findLargestArea(INCREASING_ENCLOSING.stream()));
     assertEquals(1000 * 1000,
-        StreamAlgorithms.findLargestArea(VARIOUS_RECTANGLES_TRANSLATED.stream()));
+        StreamAlgorithms.findLargestArea(VARIOUS_RECTANGLES.stream()));
+    assertEquals(1000 * 1000,
+        StreamAlgorithms
+            .findLargestArea(VARIOUS_RECTANGLES_TRANSLATED.stream()));
     assertEquals(10000 * 10000,
         StreamAlgorithms.findLargestArea(VARIOUS_RECTANGLES_SCALED.stream()));
     assertEquals(10000 * 10000,
-        StreamAlgorithms.findLargestArea(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream()));
-    assertEquals(0, StreamAlgorithms.findLargestArea(new ArrayList<Rectangle>().stream()));
+        StreamAlgorithms.findLargestArea(
+            VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream()));
+    assertEquals(0,
+        StreamAlgorithms.findLargestArea(new ArrayList<Rectangle>().stream()));
   }
 
   @Test
   public void streamFindMaxHeight() {
-    assertEquals(5, StreamAlgorithms.findMaxHeight(INCREASING_ENCLOSING.stream()));
-    assertEquals(1000, StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES.stream()));
-    assertEquals(1000, StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED.stream()));
-    assertEquals(10000, StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_SCALED.stream()));
+    assertEquals(5,
+        StreamAlgorithms.findMaxHeight(INCREASING_ENCLOSING.stream()));
+    assertEquals(1000,
+        StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES.stream()));
+    assertEquals(1000,
+        StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED.stream()));
     assertEquals(10000,
-        StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream()));
+        StreamAlgorithms.findMaxHeight(VARIOUS_RECTANGLES_SCALED.stream()));
+    assertEquals(10000,
+        StreamAlgorithms
+            .findMaxHeight(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream()));
   }
 
   @Test
@@ -557,8 +611,9 @@ public class TestSuite {
 
   @Test
   public void streamGetSumOfAreasOfAllIntersecting() {
-    assertEquals(0, StreamAlgorithms.getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING.stream(),
-        new Rectangle(new Point(100, 100), 10, 10)));
+    assertEquals(0, StreamAlgorithms
+        .getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING.stream(),
+            new Rectangle(new Point(100, 100), 10, 10)));
     assertEquals(3 * 3 + 4 * 4 + 5 * 5, StreamAlgorithms
         .getSumOfAreasOfAllIntersecting(INCREASING_ENCLOSING.stream(),
             new Rectangle(new Point(3, 3), 10, 10)));
@@ -566,7 +621,8 @@ public class TestSuite {
 
   @Test
   public void streamGetAreaMap() {
-    Map<Rectangle, Integer> result = StreamAlgorithms.getAreaMap(INCREASING_ENCLOSING.stream());
+    Map<Rectangle, Integer> result = StreamAlgorithms
+        .getAreaMap(INCREASING_ENCLOSING.stream());
     Map<Rectangle, Integer> expected = new HashMap<>();
     expected.put(INCREASING_ENCLOSING.get(0), 1 * 1);
     expected.put(INCREASING_ENCLOSING.get(1), 2 * 2);
@@ -598,7 +654,8 @@ public class TestSuite {
     RECTANGLE_LISTS.forEach(l ->
         assertTrue(equalRectangleLists(
             ListAlgorithms.translate(l, new Point(20, 20)),
-            StreamAlgorithms.translate(l.stream(), new Point(20, 20)).collect(toList())
+            StreamAlgorithms.translate(l.stream(), new Point(20, 20))
+                .collect(toList())
         )));
   }
 
@@ -626,7 +683,8 @@ public class TestSuite {
       Rectangle intersectionCandidate = new Rectangle(new Point(2, 2), 1000, 2);
       assertTrue(equalRectangleLists(
           ListAlgorithms.getAllIntersecting(l, intersectionCandidate),
-          StreamAlgorithms.getAllIntersecting(l.stream(), intersectionCandidate).collect(toList())
+          StreamAlgorithms.getAllIntersecting(l.stream(), intersectionCandidate)
+              .collect(toList())
       ));
     });
   }
@@ -637,7 +695,8 @@ public class TestSuite {
       Rectangle areaCandidate = new Rectangle(new Point(2, 2), 60, 2);
       assertTrue(equalRectangleLists(
           ListAlgorithms.getAllWithBiggerAreaThan(l, areaCandidate),
-          StreamAlgorithms.getAllWithBiggerAreaThan(l.stream(), areaCandidate).collect(toList())
+          StreamAlgorithms.getAllWithBiggerAreaThan(l.stream(), areaCandidate)
+              .collect(toList())
       ));
     });
   }
@@ -675,10 +734,13 @@ public class TestSuite {
   @Test
   public void compareListStreamGetSumOfAreasOfAllIntersecting() {
     RECTANGLE_LISTS.forEach(l -> {
-      Rectangle intersectionCandidate = new Rectangle(new Point(10, 10), 10, 10);
+      Rectangle intersectionCandidate = new Rectangle(new Point(10, 10), 10,
+          10);
       assertEquals(
-          ListAlgorithms.getSumOfAreasOfAllIntersecting(l, intersectionCandidate),
-          StreamAlgorithms.getSumOfAreasOfAllIntersecting(l.stream(), intersectionCandidate)
+          ListAlgorithms
+              .getSumOfAreasOfAllIntersecting(l, intersectionCandidate),
+          StreamAlgorithms
+              .getSumOfAreasOfAllIntersecting(l.stream(), intersectionCandidate)
       );
     });
   }
@@ -692,8 +754,9 @@ public class TestSuite {
     assertTrue(
         equalRectangles(
             new Rectangle(new Point(10, 10), 5, 5),
-            new Rectangle(new Point(0, 0), 15, 15).intersection(new Rectangle(new Point(10, 10), 15, 15)).get()
-    ));
+            new Rectangle(new Point(0, 0), 15, 15)
+                .intersection(new Rectangle(new Point(10, 10), 15, 15)).get()
+        ));
   }
 
   @Test
@@ -701,15 +764,17 @@ public class TestSuite {
     assertTrue(
         equalRectangles(
             new Rectangle(new Point(15, 15), 0, 0),
-            new Rectangle(new Point(0, 0), 15, 15).intersection(new Rectangle(new Point(15, 15), 15, 15)).get()
+            new Rectangle(new Point(0, 0), 15, 15)
+                .intersection(new Rectangle(new Point(15, 15), 15, 15)).get()
         ));
   }
 
   @Test
   public void rectangleIntersection3() {
     assertFalse(
-      new Rectangle(new Point(0, 0), 15, 15)
-          .intersection(new Rectangle(new Point(16, 16), 15, 15)).isPresent());
+        new Rectangle(new Point(0, 0), 15, 15)
+            .intersection(new Rectangle(new Point(16, 16), 15, 15))
+            .isPresent());
   }
 
   @Test
@@ -723,7 +788,8 @@ public class TestSuite {
   @Test
   public void streamIntersectAll2() {
     assertFalse(
-        StreamAlgorithms.intersectAll(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream())
+        StreamAlgorithms
+            .intersectAll(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream())
             .isPresent());
   }
 /*
@@ -825,7 +891,6 @@ public class TestSuite {
 
   */
 
-
   //============================
   // Additional tests for Point.
   //============================
@@ -866,32 +931,187 @@ public class TestSuite {
         new Point(0, 0).add(new Point(10, 0))));
   }
 
-
   //================================
   // Additional tests for Rectangle.
   //================================
 
-  // TODO: write your additional tests for the Rectangle class here
 
+  @Test
+  public void rectangleConstructor4() {
+    assertTrue(equalRectangles(
+        new Rectangle(new Point(4, 8), new Point(6, 2)),
+        new Rectangle(new Point(4, 2), new Point(6, 8))));
+    assertTrue(equalRectangles(new Rectangle(new Point(0, 0), 0, 0),
+        new Rectangle(new Point(0, 0), new Point(0, 0))));
+  }
+
+  @Test
+  public void rectangleGetWidthAndHeight() {
+    assertEquals(new Rectangle(new Point(0, 0), new Point(0, 0))
+        .getWidth(), 0);
+    assertEquals(new Rectangle(new Point(-10, -20), 10, 20).getHeight(),
+        20);
+  }
+
+  @Test
+  public void rectangleArea2() {
+    assertEquals(200, new Rectangle(new Point(-10, -20), 10, 20).area());
+    assertEquals(30, new Rectangle(new Point(), new Point(-15, 2)).area());
+  }
+
+  @Test
+  public void rectangleIntersects() {
+    Rectangle r1 = new Rectangle(new Point(-10, -20), 15, 25);
+    Rectangle r2 = new Rectangle(0, 0);
+    Rectangle r3 = new Rectangle(new Point(-10, -20), new Point(-5, -10));
+
+    assertTrue(r1.intersects(r2));
+    assertTrue(r1.intersects(r3));
+    assertFalse(r3.intersects(r2));
+
+  }
 
   //=====================================
   // Additional tests for ListAlgorithms.
   //=====================================
 
-  // TODO: write your additional tests for the ListAlgorithms class here
+  @Test
+  public void EmptyListTranslateAndScale() {
+    assertTrue(equalRectangleLists(
+        NO_RECTANGLES, ListAlgorithms.scale(
+            ListAlgorithms.translate(NO_RECTANGLES, new Point(10, 100)),
+            10)));
+  }
 
+  @Test
+  public void listGetBottomLeftTrans() {
+    List<Point> bottomLeft = ListAlgorithms.getBottomLeftPoints
+        (VARIOUS_RECTANGLES_TRANSLATED);
+    List<Point> expected = Arrays.asList(
+        new Point(10, 20).add(new Point(10, 100)),
+        new Point(15, 25).add(new Point(10, 100)),
+        new Point(0, 1000).add(new Point(10, 100)),
+        new Point(2000, 2001).add(new Point(10, 100)));
+    assertTrue(equalPointLists(bottomLeft, expected));
+  }
+
+  @Test
+  public void listGetAllIntersecting4() {
+    assertTrue(equalRectangleLists(NO_RECTANGLES,
+        ListAlgorithms
+            .getAllIntersecting(NO_RECTANGLES, INCREASING_ENCLOSING.get(2))));
+  }
+
+  @Test
+  public void listGetAllWithBiggerAreaThan3() {
+    Rectangle candidate = new Rectangle(new Point(100, 100), 1, 1);
+    assertTrue(equalRectangleLists(NO_RECTANGLES,
+        ListAlgorithms.getAllWithBiggerAreaThan(NO_RECTANGLES, candidate)));
+  }
+
+  @Test
+  public void EmptyListFindLargestArea() {
+    assertEquals(0, ListAlgorithms.findLargestArea(NO_RECTANGLES));
+  }
+
+  @Test
+  public void EmptyListGetSumOfAreasOfAllIntersecting() {
+    assertEquals(0, ListAlgorithms.getSumOfAreasOfAllIntersecting(NO_RECTANGLES,
+        new Rectangle(new Point(100, 100), 10, 10)));
+  }
 
   //=======================================
   // Additional tests for StreamAlgorithms.
   //=======================================
 
-  // TODO: write your additional tests for the StreamAlgorithms class here
+  @Test
+  public void EmptyStreamTranslateAndScale() {
+    assertTrue(equalRectangleLists(
+        NO_RECTANGLES, StreamAlgorithms.scale(
+            StreamAlgorithms
+                .translate(NO_RECTANGLES.stream(), new Point(10, 100)),
+            10).collect(toList())));
+  }
+
+  @Test
+  public void StreamGetBottomLeftTrans() {
+    List<Point> bottomLeft = StreamAlgorithms.getBottomLeftPoints
+        (VARIOUS_RECTANGLES_TRANSLATED.stream()).collect(toList());
+    List<Point> expected = Arrays.asList(
+        new Point(10, 20).add(new Point(10, 100)),
+        new Point(15, 25).add(new Point(10, 100)),
+        new Point(0, 1000).add(new Point(10, 100)),
+        new Point(2000, 2001).add(new Point(10, 100)));
+    assertTrue(equalPointLists(bottomLeft, expected));
+  }
+
+  @Test
+  public void streamGetAllIntersecting4() {
+    assertTrue(equalRectangleLists(NO_RECTANGLES,
+        StreamAlgorithms
+            .getAllIntersecting(NO_RECTANGLES.stream(), INCREASING_ENCLOSING
+                .get(2)).collect(toList())));
+  }
+
+  @Test
+  public void streamGetAllWithBiggerAreaThan3() {
+    Rectangle candidate = new Rectangle(new Point(100, 100), 1, 1);
+    assertTrue(equalRectangleLists(NO_RECTANGLES,
+        StreamAlgorithms.getAllWithBiggerAreaThan(NO_RECTANGLES.stream(),
+            candidate).collect(toList())));
+  }
+
+  @Test
+  public void EmptyStreamFindLargestArea() {
+    assertEquals(0, StreamAlgorithms.findLargestArea(NO_RECTANGLES.stream()));
+  }
+
+  @Test
+  public void EmptyStreamGetSumOfAreasOfAllIntersecting() {
+    assertEquals(0, StreamAlgorithms.getSumOfAreasOfAllIntersecting
+        (NO_RECTANGLES.stream(),
+            new Rectangle(new Point(100, 100), 10, 10)));
+  }
+
+  @Test
+  public void StreamGetSumOfAreasOfAllIntersecting2() {
+    assertEquals(1, StreamAlgorithms.getSumOfAreasOfAllIntersecting
+        (SINGLE_RECTANGLE.stream(),
+            new Rectangle( 1, 1)));
+  }
 
   //==============================================
   // Additional tests for intersecting rectangles.
   //==============================================
 
-  // TODO: write your additional tests related to rectangle intersection here
+  @Test
+  public void rectangleIntersection4() {
+    assertTrue(
+        equalRectangles(
+            new Rectangle(0, 0),
+            new Rectangle(20, 90).intersection(
+                new Rectangle(new Point(-15, -10), 15, 10)).get()
+        ));
+  }
+
+  @Test
+  public void streamIntersectAll3() {
+    assertTrue(
+        StreamAlgorithms.intersectAll(SINGLE_RECTANGLE.stream())
+            .isPresent());
+  }
+
+  /*
+  why didn't this test work?
+
+  @Test
+  public void streamIntersectAll4() {
+    assertFalse(
+        StreamAlgorithms.intersectAll(NO_RECTANGLES.stream())
+            .isPresent());
+  }
+  */
+
 
 
 }
