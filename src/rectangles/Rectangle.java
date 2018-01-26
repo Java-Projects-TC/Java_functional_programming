@@ -1,5 +1,7 @@
 package rectangles;
 
+import java.util.Optional;
+
 public class Rectangle {
 
   // Fields
@@ -74,6 +76,14 @@ public class Rectangle {
   }
 
   public boolean intersects(Rectangle other) {
+
+    return !(other.getBottomLeft().isAbove(this.getTopLeft()) ||
+        other.getBottomLeft().isRightOf(this.getTopRight()) ||
+        this.getBottomLeft().isAbove(other.getTopLeft()) ||
+        this.getBottomLeft().isRightOf(other.getTopRight()));
+
+    /* I had this horrible messy thing below before changing it to this
+
     return other.getBottomRight().getX() >= this.getTopLeft().getX() &&
         other.getBottomRight().getY() >= this.getTopLeft().getY() &&
         other.getBottomLeft().getX() <= this.getTopRight().getX() &&
@@ -82,5 +92,20 @@ public class Rectangle {
         other.getTopRight().getY() <= this.getBottomLeft().getY() &&
         other.getTopLeft().getX() <= this.getBottomRight().getX() &&
         other.getTopLeft().getY() <= this.getBottomRight().getY();
-    }
+        */
   }
+
+  public Optional<Rectangle> intersection(Rectangle other) {
+    if (!this.intersects(other)) {
+      return Optional.empty();
+    }
+    return Optional.of(new Rectangle(
+        new Point(Math.max(this.getTopLeft().getX(), other.getTopLeft().getX()),
+            Math.max(this.getTopLeft().getY(), other.getTopLeft().getY())),
+        new Point((Math.min(this.getBottomRight().getX(),
+            other.getBottomRight().getX())),
+            Math.min(this.getBottomRight().getY(),
+                other.getBottomRight().getY()))));
+  }
+
+}

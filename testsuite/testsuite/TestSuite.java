@@ -442,7 +442,7 @@ public class TestSuite {
     return false;
   }
 
-  /*
+
   //=====================================
   // 4. Tests for StreamAlgorithms class.
   //=====================================
@@ -726,7 +726,7 @@ public class TestSuite {
         StreamAlgorithms.intersectAll(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream())
             .isPresent());
   }
-
+/*
   //===============================
   // 7. Tests for streams of cubes.
   //===============================
@@ -830,7 +830,41 @@ public class TestSuite {
   // Additional tests for Point.
   //============================
 
-  // TODO: write your additional tests for the Point class here
+  @Test
+  public void pointConstructor3() {
+    assertTrue(equalPoints(new Point(-1, 0), new Point(-1)));
+  }
+
+  @Test
+  public void pointGetXs() {
+    assertEquals(new Point(0, 500).getX(), 0);
+    assertEquals(new Point(1, -30).getX(), 1);
+    assertEquals(new Point(-67, 0).getX(), -67);
+  }
+
+  @Test
+  public void pointGetYs() {
+    assertEquals(new Point(0, 0).getY(), 0);
+    assertEquals(new Point(12, 1).getY(), 1);
+    assertEquals(new Point(-9, -1).getY(), -1);
+  }
+
+  @Test
+  public void pointSetXsAndYs() {
+    assertTrue(equalPoints(new Point(12, 38).setX(12), new Point(12, 38)));
+    assertTrue(equalPoints(new Point(12, 38).setX(-5), new Point(-5, 38)));
+    assertTrue(equalPoints(new Point(12, 38).setY(-8), new Point(12, -8)));
+    assertTrue(equalPoints(new Point(16, 38).setY(-9), new Point(16, -9)));
+  }
+
+  // Tests for isLeftOf etc seem to test edge cases well enough;
+  @Test
+  public void pointAdd2() {
+    assertTrue(equalPoints(new Point(-1, 0).add(new Point(-10, -10)), new
+        Point(-11, -10)));
+    assertTrue(equalPoints(new Point(10, 0).add(new Point(0, 0)),
+        new Point(0, 0).add(new Point(10, 0))));
+  }
 
 
   //================================
